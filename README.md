@@ -1,1 +1,1 @@
-# Explore-Milos-Guide
+# Milos-Boat Guide
