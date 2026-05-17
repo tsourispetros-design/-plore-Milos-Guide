@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="Milos — South Coast Boat Guide">
+<meta property="og:description" content="A simple guide for your self-drive Milos experience.">
+<meta property="og:image" content="https://res.cloudinary.com/drpww92ob/image/upload/v1778872057/cover-boat-guide_koeuem.png">
+<meta property="og:url" content="https://milossouthcoast-boatguide.netlify.app/">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="https://res.cloudinary.com/drpww92ob/image/upload/v1778939995/favicon_wyjocg.svg">
+<title>Milos — South Coast Boat Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { background: #e9e2d7; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    color: #2a2520;
+    background: transparent;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── COVER PAGE ── */
+  .cover {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    height: 100vh;
+    min-height: 520px;
+
+    background-image:
+      linear-gradient(to bottom,
+        rgba(0,0,0,0.15) 0%,
+        rgba(0,0,0,0.0) 30%,
+        rgba(0,0,0,0.5) 70%,
+        rgba(0,0,0,0.7) 100%
+      ),
+      url("https://res.cloudinary.com/drpww92ob/image/upload/v1778872057/cover-boat-guide_koeuem.png");
+      
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .cover-content,
+  .cover-tagline {
+    position: relative;
+    z-index: 3;
+  }
+
+  .cover-content {
+    position: relative;
+    z-index: 3;
+
+    margin-top: 170px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cover-location,
+  .cover-sub,
+  .cover-tagline {
+    text-align: center;
+  }
+
+  .cover-location {
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 0.5rem;
+  }
+  .cover-title {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 60px;
+    color: #ffffff;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+  .cover-title em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    color: #b8975a;
+    font-size: 64px;
+  }
+  .cover-sub {
+    margin-top: 24px;
+    max-width: 420px;
+
+    font-size: 18px;
+    line-height: 1.7;
+
+    color: rgba(255,255,255,0.82);
+  }
+
+  .cover-tagline {
+    position: absolute;
+    bottom: 28px;
+
+    font-weight: 300;
+    font-size: 18px;
+    letter-spacing: 0.32em;
+
+    color: #b8975a;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    background: radial-gradient(ellipse, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 75%);
+    padding: 8px 24px;
+
+    z-index: 3;
+  }
+
+  /* ── CONTENT PAGES ── */
+  .page-first,
+  .page-last {
+    background: linear-gradient(
+      to bottom, 
+      rgba(207,197,176,0.6) 0%, 
+      rgba(207,197,176,0.4) 40%, 
+      rgba(207,197,176,0.2) 70%, 
+      rgba(207,197,176,0.1) 100%) !important;
+  }
+
+  .page-last {
+    height: auto !important;
+    min-height: unset !important;
+    border-bottom: none !important;
+  }
+
+  .page {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    padding: 4rem 3rem;
+    margin: 2rem 0;
+    border: 1px solid #ddd5c8;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    overflow: hidden;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .section-label {
+    font-size: 22px;
+    letter-spacing: 0.25em;
+    color: #8a6e3a;      
+    font-weight: 500;  
+    margin-bottom: 2rem;
+    margin-top: 3rem;
+    margin-left: 35px;
+    padding-left: 10px;
+    border-left: 2px solid #8a6e3a;
+  }
+
+  .page-fill .section-label {
+    margin-top: 6rem;
+  }
+
+  .page-title {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 50px;
+    color: #2a2520;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .page-intro {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #2a2520;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* BULLET LIST  */
+  .tip-list { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 0; 
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .tip-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 16px;
+    background: rgba(255,255,255,0.7);
+    border: 1px solid rgba(207,197,176,0.8);
+    border-left: 6px solid #b8975a;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    font-size: 17px;
+    font-weight: 400;
+    color: #2a2520;
+    line-height: 1.5;
+  }
+  .tip-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #b8975a;
+    flex-shrink: 0;
+  }
+
+  /* ROUTE STOP CARD  */
+  .route-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-left: -3rem;
+    margin-right: -3rem;
+    margin-bottom: 0;
+  }
+
+  .card-hero {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 0;
+  }
+  .card-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .card-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+     transparent 30%, 
+    rgba(0,0,0,0.35) 65%,
+    rgba(0,0,0,0.65) 100%
+    );
+  }
+  .card-tag {
+    position: absolute;
+    bottom: 100px;        
+    left: 16px;
+    top: auto; 
+    background: linear-gradient(to right, #f5ecd6 0%, #f9f4ea 100%);
+    color: #2a2520;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    padding: 5px 10px;
+    border-radius: 2px;
+  }
+
+  .card-tag.teal {
+    background: #c2d9d4;
+    border: 1px solid #6aada2;
+  }
+  .card-name {
+    position: absolute;
+    bottom: 14px;
+    left: 16px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 46px;
+    color: #ffffff;
+    line-height: 1.7;
+    text-shadow: 
+      0 2px 12px rgba(0,0,0,0.6),
+      0 4px 24px rgba(0,0,0,0.4);
+    padding-left: 15px;
+  }
+  .card-name-dark {
+    color: #2a2520;
+    text-shadow: none;
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    position: relative;
+    width: 100%;
+    background: linear-gradient(
+      to bottom, 
+      rgba(207,197,176,0.8) 0%, 
+      rgba(207,197,176,0.6) 40%, 
+      rgba(207,197,176,0.4) 70%, 
+      rgba(207,197,176,0.2) 100%
+    );
+    padding: 1.5rem 3rem 5rem;
+    margin: 0;
+  }
+
+  .card-body .tip-list {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .stop-label {
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    color: #574d42;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    padding-left: 20px;
+    margin-left: 20px;
+  }
+
+  .stop-desc {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #2a2520;
+    margin-bottom: 1rem;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /*  GOOGLE MAPS BUTTON */
+  .maps-btn {
+    position: static;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3rem;
+    max-width: 680px;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    letter-spacing: 0.22em;
+    font-weight: 500;
+    color: #2a2520;
+    border: 1px solid #b8975a;
+    border-radius: 2px;
+    background: linear-gradient(to right, #f5ecd6 0%, #f9f4ea 100%);
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .maps-btn:hover { 
+    background: linear-gradient(to bottom, #ecdfc0 0%, #f5e8cc 100%);
+   }
+
+  /* KLEFTIKO SPECIAL  */
+  .kleftiko-title {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 35px;
+    color: #2a2520;
+    margin-bottom: 0.75rem;
+  }
+
+  /*  SAFETY PAGE */
+  .safety-page {
+    background: rgba(207,197,176,0.5);
+  }
+
+  /* FINAL CHECKS PAGE  */
+  .final-footer {
+    position: relative;
+    width: calc(100% + 6rem);   
+    margin-left: -3rem;
+    margin-right: -3rem;
+    height: 480px;           
+    margin-top: 1rem;
+    margin-bottom: -4rem;
+    border-radius: 0 0 18px 18px;
+    overflow: hidden;
+
+    background-image:
+      linear-gradient(to bottom,
+        rgba(233,226,215,1) 0%, 
+        rgba(207,197,176,0.5) 15%,
+        rgba(0,0,0,0.0) 35%,
+        rgba(0,0,0,0.35) 80%,
+        rgba(0,0,0,0.55) 100%
+      ),
+      url("https://res.cloudinary.com/drpww92ob/image/upload/v1778872045/footer-boat-guide6_bukb6f.png");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 0rem;
+    gap: 10px;
+  }
+
+  .footer-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 7rem;
+    padding: 2rem 3rem;
+    background: radial-gradient(ellipse, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 75%);
+  }
+
+  .footer-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 58px;
+    font-weight: 300;
+    color: #ffffff;
+    line-height: 1;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  }
+
+  .footer-sub {
+    font-size: 15px;
+    letter-spacing: 0.22em;
+    color: rgba(255,255,255,0.82);
+    font-weight: 400;
+  }
+
+  .footer-copyright {
+    position: absolute;
+    bottom: 75px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.85);
+    z-index: 10;
+  }
+
+  hr.divider {
+    border: none;
+    border-top: 1px solid #ddd5c8;
+    margin: 2rem 0;
+  }
+
+  .loader-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.6s ease;
+  }
+
+  .loader-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .loader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .loader-circle {
+    width: 48px;
+    height: 48px;
+    border: 2px solid rgba(255,255,255,0.2);
+    border-top: 2px solid #b8975a;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  .loader-text {
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    color: #ffffff;
+  }
+
+  @media (max-width: 768px) {
+    .page {
+      height: auto !important;
+      min-height: 80vh;
+      padding: 2rem 1.5rem;
+    }
+
+    .card-hero {
+      height: 300px;
+    }
+
+    .cover {
+      height: 90vh;
+    }
+
+    .cover-title {
+      font-size: 38px;
+    }
+
+    .cover-title em {
+      font-size: 48px;
+    }
+
+    .cover-sub {
+      font-size: 14px;
+    }
+
+    .cover-content {
+      margin-top: 120px;
+      padding: 0 1.5rem;
+    }
+
+    .cover-tagline {
+      font-size: 13px;
+      letter-spacing: 0.22em;
+      bottom: 20px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+      background: radial-gradient(ellipse, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 75%);
+      padding: 8px 24px;
+    }
+
+    .section-label {
+      font-size: 15px;
+      margin-top: 0.75rem;
+      margin-bottom: 0.5rem;
+      margin-left: 20px;
+    }
+
+    .page-fill .section-label {
+      margin-top: 3rem;
+    }
+
+    .page-title {
+      font-size: 34px;
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .page-intro {
+      font-size: 15px;
+      margin-bottom: 1rem;
+    }
+
+    .tip-item {
+      font-size: 14px;
+      padding: 12px 12px;
+    }
+
+    .card-body {
+      padding: 1rem 1.25rem 5rem;
+    }
+
+    .stop-label {
+      font-size: 13px;
+      margin-left: 0;
+      padding-left: 12px;
+      margin-bottom: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .stop-desc {
+      font-size: 14px;
+      text-align: left;
+      margin-left: 0;
+      padding-left: 1rem;
+    }
+
+    .card-body .tip-list {
+      margin-left: 0;
+      margin-right: 0;
+      padding: 0 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .maps-btn {
+      width: calc(100% - 2.5rem);
+      margin: auto auto 1.5rem;
+      font-size: 12px;
+      padding: 16px;
+      letter-spacing: 0.19em;
+    }
+
+    .card-name {
+      font-size: 32px;
+    }
+
+    .card-tag {
+      font-size: 11px;
+      bottom: 75px;
+      left: 20px;
+    }
+
+    .route-card {
+      margin-left: -1.5rem;
+      margin-right: -1.5rem;
+    }
+
+    .kleftiko-title {
+      font-size: 30px;
+    }
+
+    .final-footer {
+      height: 250px;
+      background-position: left bottom;
+      margin-bottom: 0;
+      margin-top: 0.5rem;
+      background-image:
+      linear-gradient(to bottom,
+        rgba(233,226,215,1) 0%, 
+        rgba(207,197,176,0.5) 15%,
+        rgba(0,0,0,0.0) 35%,
+        rgba(0,0,0,0.35) 60%,
+        rgba(0,0,0,0.55) 100%
+      ),
+      url("https://res.cloudinary.com/drpww92ob/image/upload/v1778872045/footer-boat-guide6_bukb6f.png");
+    }
+
+    .footer-text {
+      margin-bottom: 4rem;
+      background: radial-gradient(ellipse, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 75%);
+    }
+
+    .footer-title {
+      font-size: 44px;
+    }
+
+    .footer-sub {
+      font-size: 13px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+    }
+
+    .footer-copyright {
+      bottom: 16px;
+      font-size: 10px;
+    }
+
+    .page-last {
+      padding-bottom: 0 !important;
+      margin-bottom: 0;
+    }
+
+
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════ COVER ═══════════════════════════════════ -->
+<section class="cover">
+
+  <div class="cover-content">
+    <p class="cover-location">MILOS, GREECE</p>
+    <h1 class="cover-title">
+      South Coast<br>
+      <em>Boat Guide</em>
+    </h1>
+    <p class="cover-sub">A simple guide for your self-drive Explore Milos experience.</p>
+  </div>
+
+  <p class="cover-tagline">BE YOUR OWN CAPTAIN</p>
+</section>
+
+<!-- ═══════════════════════════════════ WELCOME ═══════════════════════════════════ -->
+<section class="page page-first page-fill">
+  <p class="section-label">BEFORE YOU SAIL</p>
+  <h2 class="page-title">Welcome aboard</h2>
+  <p class="page-intro">This guide helps you understand the suggested south coast route and the most important safety points before departure.</p>
+
+  <div class="tip-list">
+    <div class="tip-item"><span class="tip-dot"></span>Bring towels and sunscreen.</div>
+    <div class="tip-item"><span class="tip-dot"></span>Snorkeling equipment is available on board.</div>
+    <div class="tip-item"><span class="tip-dot"></span>Keep your phone charged for maps and WhatsApp.</div>
+    <div class="tip-item"><span class="tip-dot"></span>Meeting point and exact arrival time will be sent by message.</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ SUGGESTED ROUTE (header) ═══════════════════════════════════ -->
+<section class="page" style="padding-top:0; padding-bottom:0;">
+  <div class="route-card">
+    <div class="card-hero">
+      <img src="https://res.cloudinary.com/drpww92ob/image/upload/v1778872047/suggested_ntwxmr.png" alt="Scenic coastal view Milos">
+      <div class="card-hero-overlay"></div>
+      <span class="card-tag" style="background: rgba(245,220,150,0.85); border: 1px solid #c9a84c; left: 20px;">SCENIC PASS-BY</span>
+      <span class="card-name">Suggested Route</span>
+    </div>
+    <div class="card-body">
+      <p class="stop-label">ROUTE STOP 01</p>
+      <p class="stop-desc">A beautiful coastal route designed for a smooth and unforgettable Milos experience. 
+        Take your time, enjoy the scenery, and cruise responsibly.</p>
+      <p class="stop-desc"> Leaving Agios Sostis, cruise east along the coastline toward Firiplaka. 
+        Continue past Tsigrado and after Gerakas, enjoying the crystal-clear waters and unique volcanic scenery.
+        After that, cruise west, passing Agios Sostis on your way to Gerontas and the famous Kleftiko caves for the final part of the journey. </p>
+      <div class="tip-list">
+        <div class="tip-item"><span class="tip-dot"></span>Enjoy each stop at a relaxed cruising pace</div>
+        <div class="tip-item"><span class="tip-dot"></span>Avoid crowded swimming areas during peak hours</div>
+        <div class="tip-item"><span class="tip-dot"></span>Keep a comfortable distance from rocky shores</div>
+      </div>
+      <a class="maps-btn" href="https://maps.app.goo.gl/nkrsBmrXFrQJWtjX8" target="_blank" rel="noopener noreferrer">OPEN IN GOOGLE MAPS</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ FIRIPLAKA ═══════════════════════════════════ -->
+<section class="page" style="padding-top:0; padding-bottom:0;">
+  <div class="route-card">
+    <div class="card-hero">
+      <img src="https://res.cloudinary.com/drpww92ob/image/upload/v1778872046/firiplaka_fjyfs9.png" alt="Firiplaka beach Milos">
+      <div class="card-hero-overlay"></div>
+      <span class="card-tag" style="background: rgba(245,220,150,0.85); border: 1px solid #c9a84c; left: 20px;">SCENIC PASS-BY</span>
+      <span class="card-name">Firiplaka</span>
+    </div>
+    <div class="card-body">
+      <p class="stop-label">ROUTE STOP 01</p>
+      <p class="stop-desc">A beautiful first view as you leave Agios Sostis and cruise east. Enjoy the colors from offshore and keep clear of swimmers.</p>
+      <div class="tip-list">
+        <div class="tip-item"><span class="tip-dot"></span>Stay offshore</div>
+        <div class="tip-item"><span class="tip-dot"></span>Slow speed near swimmers</div>
+      </div>
+      <a class="maps-btn" href="https://maps.app.goo.gl/MebDq1b9SrxK9oRd9" target="_blank" rel="noopener noreferrer">OPEN IN GOOGLE MAPS</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ TSIGRADO ═══════════════════════════════════ -->
+<section class="page" style="padding-top:0; padding-bottom:0;">
+  <div class="route-card">
+    <div class="card-hero">
+      <img src="https://res.cloudinary.com/drpww92ob/image/upload/v1778872017/tsigrado_kuclbw.png" alt="Tsigrado beach Milos">
+      <div class="card-hero-overlay"></div>
+      <span class="card-tag teal" style="background:rgba(200,220,215,0.85); border:1px solid #6aada2;">SHORT SNORKELING STOP</span>
+      <span class="card-name">Tsigrado</span>
+    </div>
+    <div class="card-body">
+      <p class="stop-label">ROUTE STOP 02</p>
+      <p class="stop-desc">The famous narrow beach with the ladder. It is often busy, with swimmers close to shore.</p>
+      <div class="tip-list">
+        <div class="tip-item"><span class="tip-dot"></span>Watch for swimmers</div>
+        <div class="tip-item"><span class="tip-dot"></span>Good for 10-15 min snorkeling</div>
+      </div>
+      <a class="maps-btn" href="https://maps.app.goo.gl/9HMEzMz1Y6u8ZDaF7" target="_blank" rel="noopener noreferrer">OPEN IN GOOGLE MAPS</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ GERAKAS ═══════════════════════════════════ -->
+<section class="page" style="padding-top:0; padding-bottom:0;">
+  <div class="route-card">
+    <div class="card-hero">
+      <img src="https://res.cloudinary.com/drpww92ob/image/upload/v1778872046/gerakas_srknsv.png" alt="Gerakas beach Milos white cliffs">
+      <div class="card-hero-overlay"></div>
+      <span class="card-tag" style="background: rgba(245,220,150,0.85); border: 1px solid #c9a84c; left: 20px;">WIDE SANDY BAY</span>
+      <span class="card-name">Gerakas</span>
+    </div>
+    <div class="card-body">
+      <p class="stop-label">ROUTE STOP 03</p>
+      <p class="stop-desc">Clear water and a wide sandy beach. Between Tsigrado and Gerakas there are shallow rocks, so stay far offshore and approach from the center of the bay.</p>
+      <div class="tip-list">
+        <div class="tip-item"><span class="tip-dot"></span>Dangerous shallows on the way</div>
+        <div class="tip-item"><span class="tip-dot"></span>Approach from the center</div>
+      </div>
+      <a class="maps-btn" href="https://maps.app.goo.gl/8xjY1UGwdpCmHRVM7" target="_blank" rel="noopener noreferrer">OPEN IN GOOGLE MAPS</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ GERONTAS ═══════════════════════════════════ -->
+<section class="page" style="padding-top:0; padding-bottom:0;">
+  <div class="route-card">
+    <div class="card-hero">
+      <img src="https://res.cloudinary.com/drpww92ob/image/upload/v1778872046/gerontas_ektye4.png" alt="Gerontas cove Milos">
+      <div class="card-hero-overlay"></div>
+      <span class="card-tag teal" style="background:rgba(200,220,215,0.85); border:1px solid #6aada2;">OPTIONAL SWIM STOP</span>
+      <span class="card-name" style="opacity:0.75;">Gerontas</span>
+    </div>
+    <div class="card-body">
+      <p class="stop-label">ROUTE STOP 04</p>
+      <p class="stop-desc">A quiet part of the route before Kleftiko. Stop only if the sea is calm and the anchor can be checked properly.</p>
+      <div class="tip-list">
+        <div class="tip-item"><span class="tip-dot"></span>Check the anchor</div>
+        <div class="tip-item"><span class="tip-dot"></span>Swim only in calm conditions</div>
+      </div>
+      <a class="maps-btn" href="https://maps.app.goo.gl/xoGm9atBDyR5HSgB6" target="_blank" rel="noopener noreferrer">OPEN IN GOOGLE MAPS</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ KLEFTIKO ═══════════════════════════════════ -->
+<section class="page" style="padding-top:0; padding-bottom:0;">
+  <div class="route-card">
+    <div class="card-hero">
+      <img src="https://res.cloudinary.com/drpww92ob/image/upload/v1778872047/kleftiko_nsds1k.png" alt="Kleftiko white rock arches Milos">
+      <div class="card-hero-overlay"></div>
+      <span class="card-name">Kleftiko</span>
+    </div>
+    <div class="card-body">
+      <p class="stop-label">ROUTE STOP 05</p>
+      <h3 class="kleftiko-title">Explore with care</h3>
+      <p class="stop-desc">Enjoy the caves and arches from a safe distance. Do not force the boat into narrow places. Swim and snorkel only when the boat is safely anchored and conditions are calm.</p>
+      <div class="tip-list">
+        <div class="tip-item"><span class="tip-dot"></span>Move slowly around other boats.</div>
+        <div class="tip-item"><span class="tip-dot"></span>Keep at least 100 meters from rocks and reefs.</div>
+        <div class="tip-item"><span class="tip-dot"></span>Check the anchor before swimming.</div>
+      </div>
+      <a class="maps-btn" href="https://maps.app.goo.gl/wwevUiv439aaBqd37" target="_blank" rel="noopener noreferrer">OPEN IN GOOGLE MAPS</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ SIMPLE RULES ═══════════════════════════════════ -->
+<section class="page safety-page page-fill">
+  <p class="section-label">SAFETY ESSENTIALS</p>
+  <h2 class="page-title">Simple rules</h2>
+  <p class="page-intro">These small rules keep the day relaxed, safe and enjoyable.</p>
+
+  <div class="tip-list">
+    <div class="tip-item"><span class="tip-dot"></span>Stay at least 100 meters away from rocks and shallow reefs.</div>
+    <div class="tip-item"><span class="tip-dot"></span>Drive slowly near beaches, swimmers and other boats.</div>
+    <div class="tip-item"><span class="tip-dot"></span>Never leave the boat before checking the anchor.</div>
+    <div class="tip-item"><span class="tip-dot"></span>Do not enter narrow caves or tight rock passages with the boat.</div>
+    <div class="tip-item"><span class="tip-dot"></span>If wind or sea changes, choose the safer option and return earlier.</div>
+    <div class="tip-item"><span class="tip-dot"></span>If anything happens, drop anchor if possible and contact us on WhatsApp.</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ FINAL CHECKS ═══════════════════════════════════ -->
+<section class="page page-last page-fill" style="padding-bottom:0;">
+  <p class="section-label">BEFORE DEPARTURE</p>
+  <h2 class="page-title">Final checks</h2>
+
+  <div class="tip-list" style="margin-top:1rem;">
+    <div class="tip-item"><span class="tip-dot"></span>Sign the printed charter agreement before departure.</div>
+    <div class="tip-item"><span class="tip-dot"></span>Write full names, passport or ID numbers and signatures clearly.</div>
+    <div class="tip-item"><span class="tip-dot"></span>Explore Milos keeps photos of the boat condition before rental.</div>
+    <div class="tip-item"><span class="tip-dot"></span>You may also take your own photos or videos before departure.</div>
+    <div class="tip-item"><span class="tip-dot"></span>Life jackets are in the front compartment.</div>
+    <div class="tip-item"><span class="tip-dot"></span>The bimini/tent stays open only at low speed.</div>
+    <div class="tip-item"><span class="tip-dot"></span>The boat has GPS tracking for safety.</div>
+  </div>
+
+  <div class="final-footer">
+    <div class="footer-text">
+      <p class="footer-title">Set Sail</p>
+      <p class="footer-sub">What will your Milos story be?</p>
+    </div>
+    <p class="footer-copyright">© 2026 Petros Tsouris. All rights reserved.</p>
+  </div>
+</section>
+<div class="loader-overlay" id="loader">
+  <div class="loader-content">
+    <div class="loader-circle"></div>
+    <p class="loader-text">Loading your Guide</p>
+  </div>
+</div>
+<script>
+  window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    loader.classList.add('hidden');
+    setTimeout(() => loader.remove(), 600);
+  });
+</script>
+</body>
+</html>
